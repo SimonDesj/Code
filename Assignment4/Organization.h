@@ -5,6 +5,8 @@
 #include <string>
 #include <stdlib.h>
 using namespace std;
+template <typename T>
+class Plist;
 
 class Organization {
 

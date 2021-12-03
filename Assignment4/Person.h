@@ -8,6 +8,8 @@ using namespace std;
 
 class Organization; //add access to organization and university classes 
 class University;
+template <typename T>
+class Plist;
 /**
 Class Person:  Create  Person, used to add organizations to a person
 Private variable: name, age and others to define

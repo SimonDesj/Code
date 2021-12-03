@@ -38,7 +38,7 @@ Person& Person::operator=(const Person& rhs){ //copy assignment constructor
         
 
     // }
-    // return *this;
+     return *this;
 }
 
 int Person::getAge(){
@@ -85,13 +85,15 @@ string Person::getOrgNames(){
     string names = "";
     if (organizations.getSize() != 0){ 
         for(int i = 0; i< organizations.getSize(); i++){
-            names = names + organizations.getItem(0)->getName() + " "; //gets all the names of org by traversing with loop
+            names = names + (*organizations.getItem(i)).getName() + " "; //gets all the names of org by traversing with loop
         }
         return names;
     }
     else{
         return names;
     }
+    return names;
+
 }
 
 
@@ -100,7 +102,7 @@ float Person::getTotalTuition(){
     if (organizations.getSize() != 0){ //if organizations isn't a nullptr
         //dynamic casting to down cast to set the ptrUni to only point to University organizations 
         for(int i = 0; i< size; i++){
-            University* ptrUni = dynamic_cast<University*>((organizations[i]));
+            University* ptrUni = dynamic_cast<University*>((organizations.getItem(i)));
             if(ptrUni != nullptr){
                 total = total + (*ptrUni).getTuition(); //add the tuition to total tuition of universities
             }
@@ -110,15 +112,16 @@ float Person::getTotalTuition(){
     else {
         return total;
     }
+    return total;
 }
 string Person::printSchools(){
     string names = ""; //base name is empty
     
-    if (organizations !=nullptr){
+    if (organizations.getSize() !=0){
         //same concept as totalTuition - dynamic casting to get ptrUni to point to only University objects 
         University *ptrUni;
         for(int i = 0; i< size; i++){
-            ptrUni = dynamic_cast<University*>((organizations[i]));
+            ptrUni = dynamic_cast<University*>((organizations.getItem(i)));
             if(ptrUni!= nullptr){
                 //get name of university and tuition
                 names = names + (*ptrUni).getName() + ": " + to_string((*ptrUni).getTuition()) + "$ "; 
@@ -131,6 +134,7 @@ string Person::printSchools(){
     else{
         return names+"No Schools";
     }
+    return names;
 } 
 
 

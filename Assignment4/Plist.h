@@ -48,6 +48,9 @@ class Plist{
     int getCurrent(){return current;}
 
 public:
+    Plist(): capacity(5), size(0),current(-1){
+        
+    };
     Plist(int cap): capacity(cap), size(0),current(-1){
         myArray = new T(5);
     };
@@ -63,7 +66,7 @@ public:
             else{
                 myArray.start();
                 while(!myArray.isLast()){
-                    if(myArray[myArray.getCurrent()]= -1 || current >=size;){
+                    if(myArray[myArray.getCurrent()]= -1 || current >=size){
                         int temp;
                         temp = myArray.getCurrent();
                         myArray[temp] = item;
@@ -92,7 +95,8 @@ public:
         while(!myArray.isLast()){
             if(myArray[myArray.getCurrent()] == item){
                 myArray[myArray.getCurrent()] = -1;
-                break;
+                return true;
+                //break;
             }
             else{
                 myArray.next();
@@ -100,6 +104,7 @@ public:
         }
         if(myArray.isLast()&& size <= current){
             cout<<"Parameter was not found and was not removed ... change this"<<endl;
+            return false;
         }
     }
     T getItem(int i){
