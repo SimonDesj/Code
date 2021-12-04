@@ -56,26 +56,29 @@ public:
                 throw out_of_range("Out of range - List is full, cannot add");
             }
             else{
-                start();
-                while(current<capacity){
-                    if(current >=size){
-                        int temp;
-                        temp = getCurrent();
-                        myArray[temp] = item;
-                        size++;
-                        break;
-                    }
-                    else{
-                        next();
-                    }
-                }
-                if(isLast()){ 
-                //display a message if it was added or not
-                    cout<<"added"<<endl;
+                if(size == 0 && size < capacity){
+                    size++;
+                    current++;
+                    int temp;
+                    temp = getCurrent();
+                    myArray[temp] = item;
                 }
                 else{
-                    cout<<"idek bro change this shit"<<endl;
+                    start();
+                    while(current<capacity){
+                        if(current >=size){
+                            int temp;
+                            temp = getCurrent();
+                            myArray[temp] = item;
+                            size++;
+                            break;
+                        }
+                        else{
+                            next();
+                        }
+                    }
                 }
+                
             }
         }
         catch(const out_of_range& oor){
@@ -112,7 +115,8 @@ public:
         }
     }
     bool isFull(){
-        return current == size-1;
+        
+        return current+1 == size && size == capacity;
     }
     int getSize(){
         return size;

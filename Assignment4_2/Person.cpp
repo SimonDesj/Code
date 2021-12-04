@@ -67,13 +67,20 @@ std::string Person::getOrgNames() {
 }
 
  void Person::addOrganization(Organization* organization) {
-    if (size == dim) {
-        throw std::out_of_range(getName() + " has already 5 organization");
+    try{
+        if (size == dim) {
+            throw std::out_of_range(getName() + " has already 5 organization - Did not add "+organization->getName());
+        }
+        else {
+            organizations.add(organization);
+            size++;
+        }
     }
-    else {
-        organizations.add(organization);
-        size++;
+    catch(const out_of_range& oor){
+        cerr<<"Error: "<< oor.what() <<endl;
     }
+}
 
-
+void Person::removeOrganization(Organization* organization){
+    organizations.remove(organization);
 }

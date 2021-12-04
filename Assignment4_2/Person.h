@@ -32,8 +32,8 @@ public:
     int getAge() { return age; }
     std::string getName() { return name; }
     int getSize() { return size; }
-	~Person() { organizations.~Plist();
-     }
+	~Person() { organizations.~Plist();}
+    void removeOrganization(Organization* organization);
 };
 
 #endif

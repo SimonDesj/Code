@@ -13,12 +13,10 @@ class Plist{
     T* myArray;
 
     T get(){
-        if(myArray[current] != nullptr){
+        
             return myArray[current];
-        }
-        else{
-            return -1;
-        }
+        
+        
         
     }
     void start(){
@@ -108,12 +106,13 @@ public:
         }
     }
     T getItem(int i){
-        if(myArray[i] != nullptr){//if item is there and not null or smt
+        if(i <size){//if item is there and not null or smt
             return myArray[i];
         }
-        else{ //if not found
-            return -1;
+        else{
+            cout<<"Out of index"<<endl;
         }
+        
     }
     bool isFull(){
         if(myArray.isLast()){

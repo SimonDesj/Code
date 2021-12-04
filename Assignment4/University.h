@@ -10,7 +10,7 @@ class University : public Organization { //University inherits from Organization
     string name; //name of university
     float tuition; //tuition
     
-
+    
     public:
     University() : name(""), tuition(0){ //default constructor
 

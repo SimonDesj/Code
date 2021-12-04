@@ -50,14 +50,14 @@ public:
         std::string name = "";
         for (int i = 0; i < size; i++)
         {
-            //name = name + members[i].getItem().getName() + ":" + std::to_string(members[i].getItem().getAge()) + "; ";
+            name = name + (*members.getItem(i)).getName() + ":" + std::to_string((*members.getItem(i)).getAge()) + "; ";
         }
         return name;
     }
     virtual int paytuition() { cout << "no tuition for organization class"; return 0; }
     // adds a Person to the members array of the organization
     // Should double the members array size if array is full
-    void addPerson(Person person)
+    void addPerson(Person* person)
     {
         //if(members.getSize() ==0)members (dim); = new Plist<Person*> (dim); change
         if (size >= dim)
@@ -72,7 +72,7 @@ public:
             dim *= 2;
         }
 
-        members.add(&person);
+        members.add(person);
         size++;
     }
 

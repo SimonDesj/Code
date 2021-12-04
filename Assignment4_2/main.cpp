@@ -7,7 +7,7 @@
 
 //add a person to an organization and an organization to a person 
 void registering(Organization* o, Person* p) {
-    o->addPerson(*p);
+    o->addPerson(p);
     p->addOrganization(o);
 }
 
@@ -47,6 +47,8 @@ int main() {
     Person* p2 = new Person("John");
 
     registering(o0, p1);
+    cout<<p1->getOrgNames()<<endl;
+    cout<<o0->getMemberNames()<<endl;
     registering(o1, p1);
     registering(o6, p1);
     registering(o3, p1);
