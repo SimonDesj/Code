@@ -19,7 +19,7 @@ class Person {
     string name;
     int age;
     int size = 0;
-    Plist<Organization*> organizations; 
+    Plist<Organization*> organizations; //initialize organizations as a Plist template class pointer
 
 public:
 
@@ -32,7 +32,7 @@ public:
     int getAge() { return age; }
     std::string getName() { return name; }
     int getSize() { return size; }
-	~Person() { organizations.~Plist();}
+	~Person() { organizations.~Plist();} //Person destructor initialized by destructing the organizations through the PList destructor
     void removeOrganization(Organization* organization);
 };
 
