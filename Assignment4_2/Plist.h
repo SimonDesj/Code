@@ -12,8 +12,8 @@ class Plist{
     int size = 0;
     int current = -1;
     T* myArray;
-    
-    T get(){ 
+
+    T get(){
         return myArray[current];
     }
     void start(){
@@ -21,10 +21,10 @@ class Plist{
             current = 0;
             //return get();
         }
-        else{
-            //return -1;
-            cout<<"No elements in array"<<endl;
-        }
+        // else{
+        //     return -1;
+        //     cout<<"No elements in array"<<endl;
+        // }
     }
     void next(){
         if(current+1 != capacity){
@@ -78,7 +78,7 @@ public:
                         }
                     }
                 }
-                
+
             }
         }
         catch(const out_of_range& oor){
@@ -86,6 +86,7 @@ public:
         }
     }
     bool remove(T item){
+
         start();
         while(!isLast()){
             if(get() ==item){
@@ -95,6 +96,7 @@ public:
                 temp1 = getCurrent();
                 myArray[temp] = myArray[temp1];
                 size--;
+                return true;
                 break;
             }
             else{
@@ -102,7 +104,6 @@ public:
             }
         }
         if(isLast()&& size <= current){
-            cout<<"Parameter was not found and was not removed ... change this"<<endl;
             return false;
         }
     }
@@ -115,7 +116,7 @@ public:
         }
     }
     bool isFull(){
-        
+
         return current+1 == size && size == capacity;
     }
     int getSize(){
@@ -132,7 +133,7 @@ public:
 // class Plist<Organization*>{
 //     Organization* myArray;
 // public:
-    
+
 //     Plist(Organization obj){
 //         myArray = new Organization(obj);
 //     }

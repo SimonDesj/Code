@@ -69,7 +69,7 @@ std::string Person::getOrgNames() {
  void Person::addOrganization(Organization* organization) {
     try{
         if (size == dim) {
-            throw std::out_of_range(getName() + " has already 5 organization - Did not add "+organization->getName());
+            throw std::out_of_range(getName() + " has already 5 organization - Did not add "+name+" to " +organization->getName());
         }
         else {
             organizations.add(organization);
@@ -82,5 +82,16 @@ std::string Person::getOrgNames() {
 }
 
 void Person::removeOrganization(Organization* organization){
-    organizations.remove(organization);
+    try{
+        if(organizations.remove(organization)){
+            size--;
+        }
+        else if(!organizations.remove(organization)){
+            throw -1;
+        }
+    }
+    catch(...){
+        cerr<<"Error Person::removeOrganization: Cannot withdraw " +name +" from "+organization->getName() +". "+ name + " is not a member of the organization"<<endl;
+
+    }
 }

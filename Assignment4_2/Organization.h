@@ -75,6 +75,19 @@ public:
         members.add(person);
         size++;
     }
+    void removePerson(Person* person){
+        try{
+            if(members.remove(person)){
+                size--;
+            }
+            else if(!members.remove(person)){
+                throw -1;
+            }
+        }
+        catch(...){
+            cerr<<"Error Organization::removeOrganization: Cannot withdraw " +name +" from "+person->getName() +". "+person->getName()+" doesn't have a member "+ name <<endl;
+        }
+    }
 
     string getName() {
         return name;

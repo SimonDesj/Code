@@ -22,7 +22,8 @@ void printMembers(Person& person)
 
 void withdraw(Organization* o, Person* p)
 {
-    //to be completed
+    o->removePerson(p);
+    p->removeOrganization(o);
 }
 
 
@@ -47,8 +48,6 @@ int main() {
     Person* p2 = new Person("John");
 
     registering(o0, p1);
-    cout<<p1->getOrgNames()<<endl;
-    cout<<o0->getMemberNames()<<endl;
     registering(o1, p1);
     registering(o6, p1);
     registering(o3, p1);
@@ -63,9 +62,9 @@ int main() {
     printMembers(*p1);
     cout << "University Organization: \n" << p1->printSchools() << endl;
     cout << "With Total tuition fees of " << p1->getTotalTuition() << " $" << endl << endl;
-    //withdraw(o3,p1);
+    withdraw(o3,p1);
     
-    //withdraw(o2,p1); // This should output an error message as p1 is not a member of o2
+    withdraw(o2,p1); // This should output an error message as p1 is not a member of o2
 
     cout << "----------------------------------------------------------------" << endl;
 	  printMembers(*p1);
