@@ -3,7 +3,7 @@
 #include "Organization.h"
 #include "university.h"
 #include "Plist.h"
-
+//Simon Desjardins - 300172226
 
 //add a person to an organization and an organization to a person 
 void registering(Organization* o, Person* p) {
@@ -48,6 +48,8 @@ int main() {
     Person* p2 = new Person("John");
 
     registering(o0, p1);
+    
+
     registering(o1, p1);
     registering(o6, p1);
     registering(o3, p1);
@@ -56,10 +58,13 @@ int main() {
 
     registering(o1, p2);
     registering(o6, p2);
-    registering(o5, p2);
-
-
+   
+    //registering(o5, p2);
+    
+    
     printMembers(*p1);
+
+
     cout << "University Organization: \n" << p1->printSchools() << endl;
     cout << "With Total tuition fees of " << p1->getTotalTuition() << " $" << endl << endl;
     withdraw(o3,p1);

@@ -59,7 +59,8 @@ std::string Person::getOrgNames() {
     std::string name = "";
     for (int i = 0; i < size; i++)
     {
-        name = name + (*organizations.getItem(i)).getName() + ", "; //getting the names by dereferencing organizations' pointer that we got from get Item and then get its name
+        name = name + (*organizations.getItem(i)).getName() + ", "; 
+        //getting the names by dereferencing organizations' pointer that we got from get Item and then get its name
     }
     return name;
 }

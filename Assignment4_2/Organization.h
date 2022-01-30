@@ -1,4 +1,5 @@
 
+
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
 #include <iostream>
@@ -68,8 +69,9 @@ public:
             members = tmp; //set members to tmp
             dim *= 2; //multiply the dim by 2
         }
-
+        
         members.add(person); //add the person through Plist method add
+        
         size++; //add to size in this class
     }
     void removePerson(Person* person){
